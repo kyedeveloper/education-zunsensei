@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-slate-300 font-sans antialiased;
+    background-image: radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.08), transparent 60%);
+  }
+
+  ::selection {
+    background: #38bdf8;
+    color: #04121f;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-2xl border border-line bg-card;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-panel/80 px-3 py-1 text-xs font-medium text-slate-400;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-cyan px-5 py-3 text-sm font-semibold text-ink transition-transform duration-200 will-change-transform hover:-translate-y-0.5 hover:bg-cyan-soft active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-card/60 px-5 py-3 text-sm font-semibold text-slate-300 transition-transform duration-200 will-change-transform hover:-translate-y-0.5 hover:border-cyan/60 hover:text-cyan active:translate-y-0;
+  }
+}
+
+@layer utilities {
+  .sweep-mask {
+    @apply pointer-events-none absolute inset-0 overflow-hidden rounded-2xl;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .thin-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .thin-scroll::-webkit-scrollbar-track {
+    background: #0d1424;
+  }
+
+  .thin-scroll::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 999px;
+  }
+
+  .thin-scroll::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+
+  .grid-lines {
+    background-image: linear-gradient(rgba(30, 41, 59, 0.45) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 41, 59, 0.45) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .gpu {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+}
